@@ -1,7 +1,7 @@
 <?php
 
 if( !class_exists('WPUpdatrPlugins') ){
-    require_once plugin_dir_path( __FILE__ ).'inc/class.plugin-wp-updatr.php';
+    require_once plugin_dir_path( __FILE__ ).'/class.plugin-wp-updatr.php';
   }
 
   use WPUpdatrPlugins as devlloEventsWoocommerce;

@@ -12,7 +12,7 @@ if( !class_exists('WPUpdatrPlugins') ){
   new devlloEventsWoocommerce\WPUpdatrPlugins( $license_key, $product_key );
 
   // License Key
-
+/*
   new devlloEventsWoocommerce\WPUpdatrPlugins( get_option( 'devllo-wc-license-key' ), $product_key );
 
   // Plugin Product Key

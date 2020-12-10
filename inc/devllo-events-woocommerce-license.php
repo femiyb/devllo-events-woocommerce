@@ -4,7 +4,7 @@ if( !class_exists('WPUpdatrPlugins') ){
     require_once plugin_dir_path( __FILE__ ).'class.plugin-wp-updatr-products.php';
   }
 
-  $license_key = '';
+  $license_key = get_option('devllo-wc-license-key');;
   $product_key = '';
 
   use WPUpdatrPlugins as devlloEventsWoocommerce;

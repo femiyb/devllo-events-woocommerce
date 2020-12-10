@@ -5,7 +5,7 @@ if( !class_exists('WPUpdatrPlugins') ){
   }
 
   $license_key = get_option('devllo-wc-license-key');;
-  $product_key = '';
+  $product_key = 'ELP-d967699a40bdaef97ef84c7f32d0d1';
 
   use WPUpdatrPlugins as devlloEventsWoocommerce;
 
@@ -13,8 +13,8 @@ if( !class_exists('WPUpdatrPlugins') ){
 
   // License Key
 
-  new devlloEventsWoocommerce\WPUpdatrPlugins( get_option( 'devlloEventsWoocommerce_api_key' ), $product_key );
+  new devlloEventsWoocommerce\WPUpdatrPlugins( get_option( 'devllo-wc-license-key' ), $product_key );
 
   // Plugin Product Key
-  new devlloEventsWoocommerce\WPUpdatrPlugins( get_option( 'devlloEventsWoocommerce_api_key' ), 'ELP-d967699a40bdaef97ef84c7f32d0d1' );
+  new devlloEventsWoocommerce\WPUpdatrPlugins( get_option( 'devllo-wc-license-key' ), 'ELP-d967699a40bdaef97ef84c7f32d0d1' );
 

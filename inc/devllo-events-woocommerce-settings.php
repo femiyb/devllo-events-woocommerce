@@ -19,15 +19,20 @@ register_setting( 'devllo-events-woocommerce-options', 'devllo-wc-license-key' )
 
 if ($object == null){
   $license_status = "License Not Active";
+  $license_class = "red";
 }
 else {
   $license_status = "License Active";
+  $license_class = "green";
+
 }
 
 
 function devllo_events_woocommerce_settings_content(){
     
   global $license_status;
+  global $license_class;
+
 
     $active_tab = "devllo_events_woocommerce_options";
     $tab = filter_input(
@@ -40,6 +45,10 @@ function devllo_events_woocommerce_settings_content(){
         $active_tab = $tab;
       } 
     ?>
+
+<h2 class="nav-tab-wrapper">
+        <a style="color:<?php echo $license_class;?>" href="?post_type=devllo_event&page=devllo-events-woocommerce-dashboard" class="nav-tab <?php echo $active_tab == 'devllo_events_options' ? 'nav-tab-active' : ''; ?>"><?php _e('License', 'devllo-events'); ?></a>
+</h2>
 
     <form method="post" action="options.php">
 
@@ -54,13 +63,18 @@ function devllo_events_woocommerce_settings_content(){
 
     <?php $devllowclicensekey = get_option('devllo-wc-license-key');?>
 
-    License Key: 
-    <input name="devllo-wc-license-key" type="text" class="regular-text" value="<?php if (isset($devllowclicensekey)) { echo esc_attr($devllowclicensekey); }?>">
-    <div class="license_status">
+    <table class="table">
+    <tr>
+
+    <th style="text-align: left;">License Key: </th>
+    <th><input name="devllo-wc-license-key" type="text" class="regular-text" value="<?php if (isset($devllowclicensekey)) { echo esc_attr($devllowclicensekey); }?>"></th>
+    </tr>
+    </table>
+    <div style="color:<?php echo $license_class;?>"><strong>
     <?php 
     
     echo $license_status;
-    ?> </div>
+    ?> </strong></div>
     <?php
     
     // Submit

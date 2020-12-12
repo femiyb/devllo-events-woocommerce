@@ -22,18 +22,19 @@ function devllo_events_woocommerce_settings_content(){
 
 <?php
 
-       /*
+       
         if( $active_tab == 'devllo_events_woocommerce_options' ) {
           settings_fields( 'devllo-events-woocommerce-options' );
           do_settings_sections( 'devllo-events-woocommerce-options' );
-          */
+          
            ?>
 
 <?php $devllowclicensekey = get_option('devllo-wc-license-key');?>
 License Key: 
 <input name="devllo-wc-license-key" type="text" class="regular-text" value="<?php if (isset($devllowclicensekey)) { echo esc_attr($devllowclicensekey); }?>">
 
-<?php submit_button(); ?>		
+<?php submit_button();
+} ?>		
 </form>
 <?php
 }

@@ -16,14 +16,6 @@ register_setting( 'devllo-events-woocommerce-options', 'devllo-wc-license-key' )
 
 }
 
-use WPUpdatrPlugins as devlloEventsWoocommerce;
-
-$license = new myPluginAlias\WPUpdatrPlugins( get_option( 'devllo-wc-license-key', 'ELP-d967699a40bdaef97ef84c7f32d0d1' ));
-
-$object = $license->verify_license();
-
-var_dump($object);
-
 function devllo_events_woocommerce_settings_content(){
 
     $active_tab = "devllo_events_woocommerce_options";
@@ -36,11 +28,11 @@ function devllo_events_woocommerce_settings_content(){
     if( isset( $tab ) ) {
         $active_tab = $tab;
       } 
-?>
+    ?>
 
-<form method="post" action="options.php">
+    <form method="post" action="options.php">
 
-<?php
+    <?php
 
        
         if( $active_tab == 'devllo_events_woocommerce_options' ) {
@@ -49,12 +41,12 @@ function devllo_events_woocommerce_settings_content(){
           
            ?>
 
-<?php $devllowclicensekey = get_option('devllo-wc-license-key');?>
+    <?php $devllowclicensekey = get_option('devllo-wc-license-key');?>
 
-License Key: 
-<input name="devllo-wc-license-key" type="text" class="regular-text" value="<?php if (isset($devllowclicensekey)) { echo esc_attr($devllowclicensekey); }?>">
+    License Key: 
+    <input name="devllo-wc-license-key" type="text" class="regular-text" value="<?php if (isset($devllowclicensekey)) { echo esc_attr($devllowclicensekey); }?>">
 
-<?php submit_button();
+    <?php submit_button();
 }
 
  ?>		

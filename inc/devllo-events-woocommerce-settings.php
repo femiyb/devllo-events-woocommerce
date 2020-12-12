@@ -16,7 +16,18 @@ register_setting( 'devllo-events-woocommerce-options', 'devllo-wc-license-key' )
 
 }
 
+
+if ($object == null){
+  $license_status = "License Not Active";
+}
+else {
+  $license_status = "License Active";
+}
+
+
 function devllo_events_woocommerce_settings_content(){
+    
+  global $license_status;
 
     $active_tab = "devllo_events_woocommerce_options";
     $tab = filter_input(
@@ -45,8 +56,15 @@ function devllo_events_woocommerce_settings_content(){
 
     License Key: 
     <input name="devllo-wc-license-key" type="text" class="regular-text" value="<?php if (isset($devllowclicensekey)) { echo esc_attr($devllowclicensekey); }?>">
-
-    <?php submit_button();
+    <div class="license_status">
+    <?php 
+    
+    echo $license_status;
+    ?> </div>
+    <?php
+    
+    // Submit
+    submit_button();
 }
 
  ?>		

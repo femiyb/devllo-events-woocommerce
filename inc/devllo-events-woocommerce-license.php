@@ -12,8 +12,6 @@ if( !class_exists('WPUpdatrPlugins') ){
     new devlloEventsWoocommerce\WPUpdatrPlugins( $license_key, $product_key );
 
 
-    $license = new devlloEventsWoocommerce\WPUpdatrPlugins( get_option( 'devllo-wc-license-key', 'ELP-d967699a40bdaef97ef84c7f32d0d1' ));
+    $license = new devlloEventsWoocommerce\WPUpdatrPlugins( get_option( 'devllo-wc-license-key'), 'ELP-d967699a40bdaef97ef84c7f32d0d1' );
 
     $object = $license->verify_license();
-
-    var_dump($object);

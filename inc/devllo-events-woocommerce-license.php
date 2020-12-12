@@ -19,3 +19,4 @@ new devlloEventsWoocommerce\WPUpdatrPlugins( get_option( 'devllo-wc-license-key'
   // Plugin Product Key
 new devlloEventsWoocommerce\WPUpdatrPlugins( get_option( 'devllo-wc-license-key' ), 'ELP-d967699a40bdaef97ef84c7f32d0d1' );
 
+*/

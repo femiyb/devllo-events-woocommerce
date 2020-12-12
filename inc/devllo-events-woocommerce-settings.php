@@ -16,6 +16,17 @@ register_setting( 'devllo-events-woocommerce-options', 'devllo-wc-license-key' )
 }
 
 function devllo_events_woocommerce_settings_content(){
+
+    $active_tab = "devllo_events_woocommerce_options";
+    $tab = filter_input(
+        INPUT_GET, 
+        'tab', 
+        FILTER_CALLBACK, 
+        ['options' => 'esc_html']
+    );
+    if( isset( $tab ) ) {
+        $active_tab = $tab;
+      } 
 ?>
 
 <form method="post" action="options.php">

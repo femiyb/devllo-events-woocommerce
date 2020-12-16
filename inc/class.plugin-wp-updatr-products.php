@@ -233,7 +233,7 @@ class WPUpdatrPlugins{
 
 			$slug = str_replace( '.php', '', basename( $plugin ) );
 			
-			if ( $product['status'] == 0 && !empty( $product['Slug'] ) && $product['Slug'] == $slug ) {
+			if ( $product['status'] == 0 && !empty( $product['Slug'] ) && $product['Slug'] !== $slug ) {
 
 				require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
@@ -261,7 +261,7 @@ class WPUpdatrPlugins{
 			
 			$product = $this->verify_license();
 
-			if ( $product['status'] == 0 && !empty( $product['Slug'] ) && $product['Slug'] == $slug ) {
+			if ( $product['status'] == 0 && !empty( $product['Slug'] ) && $product['Slug'] !== $slug ) {
 
 				$msg = __( 'You must have a valid license key to update this plugin.', 'espresso' );
 				echo '<div class="error"><p>' . $msg . '</p></div>';

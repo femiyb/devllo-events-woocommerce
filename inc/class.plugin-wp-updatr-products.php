@@ -237,8 +237,6 @@ class WPUpdatrPlugins{
 
 			$slug = str_replace( '.php', '', basename( $plugin ) );
 			
-			$slug = str_replace( '.php', '', basename( $plugin ) );	
-
 			if( !empty( $product['status'] ) ){			
 				if ( $product['status'] == 0 && !empty( $product['Slug'] ) ) {
 					if( $product['Slug'] == $slug ){

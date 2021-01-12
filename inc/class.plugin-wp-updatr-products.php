@@ -271,7 +271,7 @@ class WPUpdatrPlugins{
 			
 			$product = $this->verify_license();
 
-			if( !empty( $product['status'] ) ){			
+<if( !empty( $product['status'] ) ){			
 				if ( $product['status'] == 0 && !empty( $product['Slug'] ) ) {
 					if( $product['Slug'] == $slug ){
 

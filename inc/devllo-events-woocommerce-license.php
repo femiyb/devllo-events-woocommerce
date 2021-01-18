@@ -6,7 +6,7 @@ if( !class_exists('WPUpdatrPlugins') ){
 
 use WPUpdatrPlugins as devlloEventsWoocommerce;
 
-// $license_key =  get_option( 'devllo-wc-license-key');
+$license_key =  get_option( 'devllo-wc-license-key');
 
 $license = new devlloEventsWoocommerce\WPUpdatrPlugins( $license_key, 'ELP-d967699a40bdaef97ef84c7f32d0d1' );
 

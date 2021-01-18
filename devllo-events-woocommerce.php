@@ -1,6 +1,6 @@
 <?php
 /*
-    Plugin Name: WooCommerce Integration for Devllo Events Tickets
+    Plugin Name: WooCommerce Integration for Devllo Events
     Plugin URI: https://devlloplugins.com/
     Description: Purchase Events Tickets with WooCommerce
     Author: Devllo Plugins

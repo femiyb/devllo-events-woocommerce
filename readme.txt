@@ -3,7 +3,7 @@ Tags: events, woocommerce, devllo-events, tickets
 Requires at least: 4.4
 Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 0.2.1
+Stable tag: 0.2.3
 License: GPLv2 or later
 
 Sell Devllo Events Tickets with WooCommerce
@@ -30,6 +30,9 @@ Activate the plugin through the ‘Plugins’ menu in WordPress
 
 
 == Changelog ==
+= 0.2.3 =
+Fixed bug occuring when installing other plugins
+
 = 0.2.1 =
 Fix bug occuring during update
 

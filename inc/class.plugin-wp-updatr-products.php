@@ -38,24 +38,29 @@ class WPUpdatrPlugins{
 	 */
 	function plugins_api( $api, $action = '', $args = null ) {
 
-		// Not even looking for plugin information? Or not given slug?
-		if ( 'plugin_information' != $action || empty( $args->slug ) ) {
-			return $api;
+		$plugin_slug = plugin_basename( __FILE__ );
+
+		if( $plugin_slug == $args->slug ) {
+
+			// Not even looking for plugin information? Or not given slug?
+			if ( 'plugin_information' != $action || empty( $args->slug ) ) {
+				return $api;
+			}
+
+			//Comment out while testing
+			// $this->update_plugin_cache();
+
+			// get addon information
+			$addon = $this->verify_license();
+
+			// no response?
+			if ( empty( $addon ) ) {
+				return $api;
+			}
+
+			// Create a new stdClass object and populate it with our plugin information.
+			$api = $this->build_plugin_api_object( $addon );
 		}
-
-		//Comment out while testing
-		// $this->update_plugin_cache();
-
-		// get addon information
-		$addon = $this->verify_license();
-
-		// no response?
-		if ( empty( $addon ) ) {
-			return $api;
-		}
-
-		// Create a new stdClass object and populate it with our plugin information.
-		$api = $this->build_plugin_api_object( $addon );
 
 		return $api;
 	

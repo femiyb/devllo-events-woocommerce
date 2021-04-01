@@ -30,6 +30,10 @@ Activate the plugin through the ‘Plugins’ menu in WordPress
 
 
 == Changelog ==
+= 0.3 =
+Integrate with Bookings for Devllo Events Add On
+ENHANCEMENT: Updated so you don't have to create a WooCommerce product to check out for an event.
+
 = 0.2.3 =
 Fixed bug occuring when installing other plugins
 

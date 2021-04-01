@@ -13,3 +13,4 @@ $license = new devlloEventsWoocommerce\WPUpdatrPlugins( $license_key, 'ELP-d9676
 $object = $license->verify_license();
 
 // var_dump($object);
+

@@ -22,7 +22,6 @@ add_action('woocommerce_loaded' , function (){
  
 require_once plugin_dir_path( __FILE__ ) . 'inc/devllo-events-woocommerce-license.php';
 
-require_once plugin_dir_path( __FILE__ ) . 'inc/devllo-events-woocommerce-admin.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/devllo-events-woocommerce-ticket.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/devllo-events-woocommerce-settings.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/devllo-events-woocommerce-add-to-cart-function.php';

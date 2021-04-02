@@ -1,5 +1,8 @@
 <?php
 
+if ( !is_admin()) {
+    if (isset($_COOKIE['devllo_event_wc_post_id'] )){
+
 class Devllo_Events_WC_Product_Data_Store_CPT extends WC_Product_Data_Store_CPT {
 
     /**
@@ -59,10 +62,11 @@ class Devllo_Events_WC_Product_Data_Store_CPT extends WC_Product_Data_Store_CPT 
 
 add_filter( 'woocommerce_data_stores', 'woocommerce_data_stores' );
 
-function woocommerce_data_stores ( $stores ) {      
-    $stores['product'] = 'Devllo_Events_WC_Product_Data_Store_CPT';
-    return $stores;
+    function woocommerce_data_stores ( $stores ) {      
+        $stores['product'] = 'Devllo_Events_WC_Product_Data_Store_CPT';
+        return $stores;
+    }
+
+
 }
-
-
-
+}

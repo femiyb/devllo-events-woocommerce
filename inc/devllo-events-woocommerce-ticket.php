@@ -12,8 +12,6 @@ class Devllo_Events_WC_Tickets {
 
         add_action('init', array($this, 'do_output_buffer'));
 
-
-
     }
 
     // Create Registration Button
@@ -49,12 +47,14 @@ class Devllo_Events_WC_Tickets {
                 $product_id = $post->ID;
         
                 if(isset($_POST['devllo_attend_event'])) { 
-                
+                    if( get_post_type() == 'devllo_event' ) {
+
                     $value = $post->ID;
         
-                    setcookie("devllo_event_wc_post_id", $value, time()+60, '/');
+                    setcookie("devllo_event_wc_post_id", $value, time()+5, '/');
                     $url = '/cart/?add-to-cart=' .$product_id;
                     wp_redirect($url);
+                    }
                 }
 
             }
@@ -66,30 +66,35 @@ class Devllo_Events_WC_Tickets {
         $product_id = $post->ID;
 
         if(isset($_POST['devllo_attend_event'])) { 
-        
+            if( get_post_type() == 'devllo_event' ) {
+
             $value = $post->ID;
 
-            setcookie("devllo_event_wc_post_id", $value, time()+60, '/');
+            setcookie("devllo_event_wc_post_id", $value, time()+5, '/');
             $url = '/cart/?add-to-cart=' .$product_id;
             wp_redirect($url);
+            }
         }
     }
     }
 
     function woocommerce_product_get_price( $price, $product ) {
         global $post;
-    
+        if ( ! is_admin() ) {
+
       //  $product_id = $post->ID; 
       if (isset($_COOKIE['devllo_event_wc_post_id'] )){
 
 		$post_id = $_COOKIE['devllo_event_wc_post_id']; 
-      }
+      
     
         if ($product->get_id() == $post_id ) {
             $price = get_post_meta($product->get_id(), "devllo_event_price_key", true); 
         }
         return $price;
     }
+    }
+}
 
     function do_output_buffer() {
             ob_start();

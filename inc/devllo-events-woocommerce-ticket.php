@@ -8,9 +8,13 @@ class Devllo_Events_WC_Tickets {
 
         add_action('devllo_events_after_side_single_event', array($this, 'devllo_events_ticket_button'));
 
-        add_filter('woocommerce_product_get_price', array($this, 'woocommerce_product_get_price'), 10, 2);
 
         add_action('init', array($this, 'do_output_buffer'));
+
+        if (isset($_COOKIE['devllo_event_wc_post_id'] )){
+        add_filter('woocommerce_product_get_price', array($this, 'woocommerce_product_get_price'), 10, 2);
+        }
+             
 
     }
 
@@ -51,7 +55,7 @@ class Devllo_Events_WC_Tickets {
 
                     $value = $post->ID;
         
-                    setcookie("devllo_event_wc_post_id", $value, time()+5, '/');
+                    setcookie("devllo_event_wc_post_id", $value, time()+100, '/');
                     $url = '/cart/?add-to-cart=' .$product_id;
                     wp_redirect($url);
                     }
@@ -59,42 +63,47 @@ class Devllo_Events_WC_Tickets {
 
             }
         
-        } else {
+        } else 
+    
+        {
 
-        global $post;
+            global $post;
 
-        $product_id = $post->ID;
+            $product_id = $post->ID;
 
-        if(isset($_POST['devllo_attend_event'])) { 
-            if( get_post_type() == 'devllo_event' ) {
+            if(isset($_POST['devllo_attend_event'])) { 
+                
+                if( get_post_type() == 'devllo_event' ) {
 
-            $value = $post->ID;
+                $value = $post->ID;
 
-            setcookie("devllo_event_wc_post_id", $value, time()+5, '/');
-            $url = '/cart/?add-to-cart=' .$product_id;
-            wp_redirect($url);
+                setcookie("devllo_event_wc_post_id", $value, time()+100, '/');
+                $url = '/cart/?add-to-cart=' .$product_id;
+                wp_redirect($url);
+                }
             }
         }
     }
-    }
+
+   
 
     function woocommerce_product_get_price( $price, $product ) {
         global $post;
         if ( ! is_admin() ) {
 
-      //  $product_id = $post->ID; 
-      if (isset($_COOKIE['devllo_event_wc_post_id'] )){
+        //  $product_id = $post->ID; 
+        if (isset($_COOKIE['devllo_event_wc_post_id'] )){
 
-		$post_id = $_COOKIE['devllo_event_wc_post_id']; 
-      
-    
-        if ($product->get_id() == $post_id ) {
-            $price = get_post_meta($product->get_id(), "devllo_event_price_key", true); 
+            $post_id = $_COOKIE['devllo_event_wc_post_id']; 
+        
+            if ($product->get_id() == $post_id ) {
+                $price = get_post_meta($product->get_id(), "devllo_event_price_key", true); 
+            }
+            return $price;
         }
-        return $price;
+        
+        } 
     }
-    }
-}
 
     function do_output_buffer() {
             ob_start();

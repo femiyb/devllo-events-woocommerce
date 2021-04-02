@@ -4,7 +4,7 @@
     Plugin URI: https://devlloplugins.com/
     Description: Purchase Events Tickets with WooCommerce
     Author: Devllo Plugins
-    Version: 0.3.1
+    Version: 0.3.2
     Author URI: https://devllo.com/
     Text Domain: devllo-events-woocommerce
     Domain Path: /languages

@@ -22,11 +22,13 @@ Activate the plugin through the ‘Plugins’ menu in WordPress
 
 
 == Frequently Asked Questions ==
-= Assigning a product to an event =
-- Add a new WooCommerce product and set the price you will charging for the event
-- Check "Set as Event Ticket Product"
+= How does this work? =
 - Create a new event or edit a current event
-- Under "Select Event Ticket", select the event product you have created.
+- Set the price for the event.
+- Users will get an option to "Purchase Event Ticket" on the event page.
+- Clicking "Purchase Event Ticket" adds the event to WooCommerce checkout.
+- Checkout for Event as you would check out for WooCommerce products.
+
 
 
 == Changelog ==

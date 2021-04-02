@@ -1,7 +1,7 @@
 === WooCommerce Integration for Devllo Events ===
 Tags: events, woocommerce, devllo-events, tickets
 Requires at least: 4.4
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 5.6
 Stable tag: 0.3
 License: GPLv2 or later

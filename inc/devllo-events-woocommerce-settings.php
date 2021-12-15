@@ -3,7 +3,8 @@
 class Devllo_WooCommerce_License {
 
     public function __construct(){     
-        add_action( 'admin_menu', array($this, 'admin_menu' ));
+        add_action( 'devllo_events_admin_menu_item', array($this, 'devllo_events_woocommerce_menu_item' ));
+
         add_action( 'admin_init', array($this, 'init_settings'));
         add_action( 'admin_notices', array($this, 'license_admin_notice'));
     }
@@ -15,21 +16,9 @@ class Devllo_WooCommerce_License {
         }
 
 
-        function admin_menu() {
-            /**
-             * menus
-             * @var array
-             */
-
-            add_options_page(
-                __( 'Hello Plugin', 'plugin-domain' ),
-                'Hello Plugin',
-                'manage_options',
-                'hello_license_settings',
-                array($this, 'settings_page'),
-            );
-        }
-
+        function devllo_events_woocommerce_menu_item(){
+          add_submenu_page( 'edit.php?post_type=devllo_event', __('WC Integratiom', 'devllo-events-woocommerce'), __('WC Integration', 'devllo-events-woocommerce'), 'manage_options', 'devllo-events-woocommerce-dashboard', array($this, 'settings_page')); 
+      }
  
         function license_admin_notice() {
             $licenseapikey = get_option('license-api-key');
@@ -39,7 +28,7 @@ class Devllo_WooCommerce_License {
             } 
             $my_current_screen = get_current_screen();
 
-            if ( isset( $my_current_screen->base ) && 'settings_page_hello_license_settings' === $my_current_screen->base ) {
+            if ( isset( $my_current_screen->base ) && 'devllo_event_page_devllo-events-woocommerce-dashboard' === $my_current_screen->base ) {
 
                 if (!$licenseapikey || !$licenseemail){
                     ?>
@@ -52,7 +41,10 @@ class Devllo_WooCommerce_License {
 
         }
 
-        function settings_page(){ ?>
+        function settings_page(){ 
+          
+          ?>
+        
             <form method="post" action="options.php">
 
             <?php
